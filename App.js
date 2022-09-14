@@ -1,10 +1,9 @@
+import { AddTodoInput, CustomModal } from "./components";
 import {
   Button,
   FlatList,
-  Modal,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -52,28 +51,13 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="New task"
-          placeholderTextColor="#ccc"
-          selectionColor="#1A535C"
-          onChangeText={onHandleText}
-          value={input}
-          style={styles.input}
-        />
-        <Button
-          title="Add"
-          //en los button solo se puede modificar el color de fondo
-          color="#4ECDC4"
-          onPress={addTodo}
-        />
-      </View>
+      <AddTodoInput placeholder="New task" onChangeText={onHandleText} input={input} onPress={addTodo}></AddTodoInput>
       <FlatList
         data={todos}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
       ></FlatList>
-      <Modal visible={modalOpen} animationType="slide">
+      <CustomModal visible={modalOpen} animationType="slide">
         <View style={styles.modalContainer}>
           <View style={styles.modalTitle}>
             <Text>Your selected task</Text>
@@ -85,10 +69,14 @@ export default function App() {
               onPress={() => onHandleDelete(selectedTodo.id)}
               color="#1A535C"
             ></Button>
-            <Button title="Cancel" onPress={() => setModalOpen(false)} color="#1A535C" />
+            <Button
+              title="Cancel"
+              onPress={() => setModalOpen(false)}
+              color="#1A535C"
+            />
           </View>
         </View>
-      </Modal>
+      </CustomModal>
     </View>
   );
 }
@@ -98,23 +86,7 @@ const styles = StyleSheet.create({
     flex: 2,
     backgroundColor: "#fff",
   },
-  inputContainer: {
-    marginTop: 50,
-    marginHorizontal: 20,
-    marginBottom: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  input: {
-    borderBottomWidth: 1,
-    borderBottomColor: "#4ECDC4",
-    padding: 10,
-    height: 40,
-    marginVertical: 10,
-    color: "#1A535C",
-    width: "75%",
-  },
+
   itemList: {
     marginHorizontal: 20,
     marginVertical: 10,
