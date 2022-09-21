@@ -1,23 +1,22 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
-import Header from "./components/header";
+import Header from "./components/header/header";
+import Landing from "./screens/landing";
+import { color } from "./constants/colors";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>
-        {" "}
-        <Header title="Mascotapp" />{" "}
-      </Text>
+      <Header title="Mascotapp" />
+      <Landing />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#28B0A2",
-    alignItems: "center",
-    justifyContent: "center",
-    height: 120,
+    flex: 1,
+    backgroundColor: color.bg,
+
   },
 });
