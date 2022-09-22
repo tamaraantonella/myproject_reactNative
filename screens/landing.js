@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   text: {
-    fontFamily: "nunito",
+    fontFamily: "nunito-regular",
     fontSize: 20,
     color: color.textBlack,
     textAlign: "center",
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   title: {
-    fontFamily: "nunito",
+    fontFamily: "nunito-regular",
     fontSize: 30,
     marginBottom: 20,
   },
@@ -124,6 +124,6 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     justifyContent: "space-between",
     alignItems: "center",
-    fontFamily: "nunito",
+    fontFamily: "nunito-regular",
   },
 });

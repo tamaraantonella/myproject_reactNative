@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 40,
-    fontFamily: "nunito",
+    fontFamily: "nunito-regular",
     color: color.bg,
   },
 });

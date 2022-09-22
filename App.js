@@ -9,7 +9,7 @@ import { useFonts } from "expo-font";
 export default function App() {
   const [userNumber, setUserNumber] = useState(0);
   const [loaded] = useFonts({
-    'nunito': require('./assets/fonts/Nunito-Regular.ttf'),
+    "nunito-regular": require('./assets/fonts/Nunito-Regular.ttf'),
   });
   const title = !userNumber ? "Adivina el número" : "El juego ha comenzado";
   const onStartGame = (number) => {
@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: color.bg,
-    fontFamily: "nunito",
+    fontFamily: "nunito-regular",
   },
 });

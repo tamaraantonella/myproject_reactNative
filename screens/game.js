@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginVertical: 10,
     textAlign: "center",
-    fontFamily: "nunito",
+    fontFamily: "nunito-regular",
   },
   buttonContainer: {
     flexDirection: "row",
