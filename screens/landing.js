@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   text: {
+    fontFamily: "nunito",
     fontSize: 20,
     color: color.textBlack,
     textAlign: "center",
@@ -99,8 +100,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   title: {
+    fontFamily: "nunito",
     fontSize: 30,
-    fontWeight: "bold",
     marginBottom: 20,
   },
   buttonCon: {
@@ -119,9 +120,10 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   start: {
-    width: '100%',
+    width: "100%",
     marginVertical: 20,
     justifyContent: "space-between",
     alignItems: "center",
+    fontFamily: "nunito",
   },
 });

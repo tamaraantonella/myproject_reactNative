@@ -17,10 +17,10 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
-     },
+  },
   title: {
-    fontSize: 30,
-    fontWeight: "bold",
+    fontSize: 40,
+    fontFamily: "nunito",
     color: color.bg,
   },
 });
