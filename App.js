@@ -36,6 +36,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: color.bg,
-    fontFamily: "nunito-regular",
   },
 });

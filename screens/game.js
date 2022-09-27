@@ -8,6 +8,40 @@ export default function GameScreen({ selected }) {
   const [currentGuess, setCurrentGuess] = useState(
     generateRandomBetween(1, 100, selected)
   );
+  const [rounds, setRounds] = useState(0);
+  const currentLow = useRef(1);
+  const currentHigh = useRef(100);
+
+  const onHandleNextGuess = (direction) => {
+    if (
+      (direction === "lower" && currentGuess < selectedNumber) ||
+      (direction === "greater" && currentGuess > selectedNumber)
+    ) {
+      Alert.alert("No mientas", "tu sabes que esta mal...", [
+        { text: "Sorry!", style: "cancel" },
+      ]);
+      return;
+    }
+    if (direction === "lower") {
+      currentHigh.current = currentGuess;
+    } else {
+      currentLow.current = currentGuess;
+    }
+
+    const nextNumber = generateRandomNumberBetween(
+      currentLow.current,
+      currentHigh.current,
+      currentGuess
+    );
+    setCurrentGuess(nextNumber);
+    setRounds((currentRounds) => currentRounds + 1);
+  };
+
+  useEffect(() => {
+    if (currentGuess === selectedNumber) {
+      onGameOver(rounds);
+    }
+  }, [currentGuess, selectedNumber, onGameOver]);
   return (
     <View style={styles.container}>
       <Text style={styles.text}>
@@ -16,8 +50,11 @@ export default function GameScreen({ selected }) {
       <Card>
         <NumberContainer>{currentGuess}</NumberContainer>
         <View style={styles.buttonContainer}>
-          <Button title="Menor" onPress={() => null}></Button>
-          <Button title="Mayor" onPress={() => null}></Button>
+          <Button
+            title="Menor"
+            onPress={() => onHandleNextGuess("lower")}
+          ></Button>
+          <Button title="Mayor" onPress={() => onHandleNextGuess('greater')}></Button>
         </View>
       </Card>
     </View>
