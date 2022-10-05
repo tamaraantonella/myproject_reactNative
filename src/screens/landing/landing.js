@@ -9,13 +9,11 @@ import {
 } from "react-native";
 import React from "react";
 
-import Header from "../../components/header/header";
 
 const Landing = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.all}>
-        <Header title="Mascotapp"></Header>
         <Text style={styles.title}>Bienvenido a Mascotapp</Text>
         <View style={styles.container}>
           <Image
@@ -43,6 +41,7 @@ const styles = StyleSheet.create({
   all: {
     alignItems: "center",
     justifyContent: "center",
+    marginVertical: 80,
   },
   container: {
     flex: 1,

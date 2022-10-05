@@ -1,0 +1,42 @@
+export const pets = [
+  {
+    id: 1,
+    categoryId: 1,
+    title: "Ronnie",
+    description: "Es un perro muy amigable",
+    gender: "macho",
+    city: "Buenos Aires",
+  },
+  {
+    id: 2,
+    categoryId: 1,
+    title: "Loki",
+    description: "Es un perro agresivo, con colla azul.",
+    gender: "macho",
+    city: "Misiones",
+  },
+  {
+    id: 3,
+    categoryId: 1,
+    title: "Bandit",
+    description: "Es pequeño y de color gris.",
+    gender: "hembra",
+    city: "Córdoba",
+  },
+  {
+    id: 4,
+    categoryId: 2,
+    title: "Santos",
+    description: "Es un perro poco sociable",
+    gender: "macho",
+    city: "Catamarca",
+  },
+  {
+    id: 4,
+    categoryId: 2,
+    title: "Santos",
+    description: "Es un perro poco sociable",
+    gender: "macho",
+    city: "Catamarca",
+  },
+];

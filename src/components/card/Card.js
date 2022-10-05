@@ -1,20 +1,20 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 
-export default function Card({ children, style }) {
+export default function Card({ item, onSelected }) {
   return (
-    <View style={{ ...styles.container, style }}>
-      {children}
-    </View>
+    <TouchableOpacity
+      onPress={() => onSelected(item)}
+      style={{ ...styles.container, backgroundColor: item.color }}
+    >
+      <Text style={styles.title}>{item.title}</Text>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: '80%',
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 10,
@@ -24,5 +24,14 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     padding: 20,
+    marginTop: 50,
+    marginHorizontal: 20,
+  },
+  title: {
+    fontFamily: "Lato-Regular",
+    fontSize: 30,
+    color: "#fff",
+    marginVertical: 10,
+    textAlign: "center",
   },
 });

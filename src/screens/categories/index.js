@@ -1,19 +1,23 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
-import Header from "../../components/header/header";
+import { View, Button, FlatList } from "react-native";
+import Card from "../../components/card/Card";
+// import Header from "../../components/header/header";
 import { styles } from "./styles";
+import { categories } from "../../constants/data";
 
 const Categories = ({ navigation }) => {
-    return (
-        <View style={styles.container}>
-            <Header title="Categorías"/>
-            <Text style={styles.title}>Categories</Text>
-            <Button
-                title="Go to Products"
-                onPress={() => navigation.navigate("Products")}
-            />
-        </View>
-    )
+    const onSelected = (item) => {
+        navigation.navigate("Products", { category: item });
+    };
+  const renderItem = ({ item }) => <Card item={item} onSelected={onSelected} />;
+  return (
+    <FlatList
+      data={categories}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id.toString()}
+      style={styles.cardCont}
+    ></FlatList>
+  );
 };
 
 export default Categories;
