@@ -20,7 +20,8 @@ const Products = ({ navigation, route }) => {
     <FlatList
       data={productsFilter}
       renderItem={renderItem}
-      keyExtractor={(item) => item.id.toString()}
+          keyExtractor={(item) => item.id.toString()}
+          style={styles.container}
     ></FlatList>
   );
 };
