@@ -5,7 +5,7 @@ import { styles } from './styles'
 const Order = ({navigation}) => {
   return (
     <View>
-      <Text>index</Text>
+      <Text>orders</Text>
     </View>
   )
 }
