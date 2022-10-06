@@ -11,7 +11,7 @@ const WishList = ({ navigation }) => {
     const newWish = wish.filter((item) => item.id !== id);
     console.log(newWish);
   };
-  const renderItem = (data) => <WishItem item={data} onDelete={onDelete} />;
+  const renderItem = (data) => <Text>Probando</Text>;
   return (
     <FlatList
       data={items}
