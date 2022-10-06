@@ -1,7 +1,7 @@
 import React from "react";
-import { NavigationContainer, TabActions } from "@react-navigation/native";
+import { NavigationContainer} from "@react-navigation/native";
 
-import ShopNavigator from "./shop";
+
 import Tabs from "./tabs";
 
 const AppNavigator = () => {

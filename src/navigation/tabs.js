@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import ShopNavigator from "./shop";
-import WishNavigator from "./wishList";
+import WishNavigator from "./wishNavigator";
 import OrderNavigator from "./order";
 import { StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
