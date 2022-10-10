@@ -19,7 +19,7 @@ const Tabs = () => {
       }}
     >
       <BottomTab.Screen
-        name="Shop"
+        name="ShopTab"
         component={ShopNavigator}
         options={{
           title: "Mascotapp",
@@ -33,7 +33,7 @@ const Tabs = () => {
         }}
       />
       <BottomTab.Screen
-        name="WishList"
+        name="WishListTab"
         component={WishNavigator}
         options={{
           title: "Wishlist",
@@ -47,7 +47,7 @@ const Tabs = () => {
         }}
       />
       <BottomTab.Screen
-        name="Order"
+        name="OrdersTab"
         component={OrderNavigator}
         options={{
           title: "Orders",
