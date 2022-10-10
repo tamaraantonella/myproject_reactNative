@@ -1,5 +1,7 @@
 import { categories } from "../../constants/data";
+import { categoryTypes } from "../types";
 
+const { SELECTED_CATEGORY } = categoryTypes;
 //estado inicial
 const initialState = {
   categories: categories,
@@ -10,13 +12,15 @@ const initialState = {
 
 const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "STARTED":
-      return { ...state, loading: true };
-    case "CATEGORIES_OK":
-      return { ...state, categories: action.payload, loading: false };
+    case SELECTED_CATEGORY:
+      const indexCat = state.categories.findIndex(
+        (item) => item.id === action.categoryId
+      );
+      if(indexCat === -1) return state;
+      return { ...state, selected: state.categories[indexCat]};
     default:
       return state;
   }
-}
+};
 
 export default categoryReducer;
