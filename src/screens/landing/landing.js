@@ -25,7 +25,7 @@ const Landing = ({ navigation }) => {
         </View>
         <View style={styles.buttonCon}>
           <Button
-            title="Go to Categories"
+            title="Ver las categorías"
             onPress={() => navigation.navigate("Categories")}
             color={"#FFC700"}
           ></Button>
