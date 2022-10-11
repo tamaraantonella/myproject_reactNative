@@ -1,26 +1,27 @@
 import React from "react";
-import { View, Text,Image } from "react-native";
+import { View, Text, Image } from "react-native";
 import Header from "../../components/header/header";
 import { pets } from "../../constants/data";
 import { styles } from "./styles";
+import { useSelector } from "react-redux";
 
-const Product = ({ navigation, route }) => {
-  const { productId } = route.params;
-  const product = pets.find((product) => product.id === productId);
+const Product = ({ navigation }) => {
+  const selectedPet = useSelector((state) => state.pets.selected);
+
   return (
     <View style={styles.container}>
-      <Header title={product.title} />
+      <Header title={selectedPet.title} />
       <View style={styles.contImg}>
         <Image
           source={{
-            uri: product.image,
+            uri: selectedPet.image,
           }}
           style={styles.image}
         />
       </View>
-      <Text>{product.description}</Text>
-      <Text>{product.gender}</Text>
-      <Text>{product.city}</Text>
+      <Text>{selectedPet.description}</Text>
+      <Text>{selectedPet.gender}</Text>
+      <Text>{selectedPet.city}</Text>
     </View>
   );
 };
