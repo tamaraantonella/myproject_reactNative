@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { FlatList } from "react-native";
 import { styles } from "./styles";
 import { ItemProd } from "../../components/item";
-import { pets } from "../../constants/data";
 import { useSelector, useDispatch } from "react-redux";
 import { filterPet, selectPet } from "../../store/actions";
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
 import Header from "../../components/header/header";
-import { pets } from "../../constants/data";
 import { styles } from "./styles";
 import { useSelector } from "react-redux";
 
