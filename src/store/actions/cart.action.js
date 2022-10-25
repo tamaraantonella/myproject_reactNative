@@ -3,7 +3,6 @@ import { URL_API } from "../../constants/firebase";
 const {
   ADD_TO_CART,
   REMOVE_FROM_CART,
-  INCREASE_QUANTITY,
   DECREASE_QUANTITY,
   CLEAR_CART,
   CONFIRM_ORDER,
@@ -23,12 +22,6 @@ export const removeFromCart = (id) => {
   };
 };
 
-export const increaseQuantity = (id) => {
-  return {
-    type: INCREASE_QUANTITY,
-    payload: id,
-  };
-};
 
 export const decreaseQuantity = (id) => {
   return {
