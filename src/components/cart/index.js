@@ -6,7 +6,9 @@ import { styles } from "./styles";
 export const CartItem = ({ item, onDelete }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{item}</Text>
+      <Text style={styles.title}>{item.quantity}</Text>
+      <Text style={styles.title}>{item.name}</Text>
+      <Text style={styles.title}>${item.price}</Text>
       <View>
         <TouchableOpacity onPress={() => onDelete(item.id)}>
           <Ionicons name="trash" size={24} color="gray" />

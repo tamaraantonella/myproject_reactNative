@@ -1,4 +1,18 @@
 import { cartTypes } from "../types";
+const carritoEjemplo = [
+    {
+      id: 1,
+      name: "Pelota",
+      price: 100,
+      quantity: 1,
+    },
+    {
+      id: 2,
+      name: "Snack",
+      price: 200,
+      quantity: 1,
+    },
+  ]
 
 const {
   ADD_TO_CART,
@@ -7,15 +21,15 @@ const {
   CLEAR_CART,
   CONFIRM_ORDER,
 } = cartTypes;
+const sumTotal = (items) => {
+  return items?.reduce((total, item) => total + item.price * item.quantity, 0);
+};
 
 const initialState = {
-  items: [],
-  total: 0,
+  items: carritoEjemplo,
+  total: sumTotal(carritoEjemplo),
 };
 
-const sumTotal = (items) => {
-  return items.reduce((total, item) => total + item.price * item.quantity, 0);
-};
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -37,9 +51,11 @@ const cartReducer = (state = initialState, action) => {
         total: sumTotal(updatedCart),
       };
     case REMOVE_FROM_CART:
+      const filteredCart=state.items.filter((item) => item.id !== action.payload);
       return {
         ...state,
-        items: state.items.filter((x) => x.id !== action.payload),
+        items: filteredCart,
+        total: sumTotal(filteredCart),
       };
 
     case DECREASE_QUANTITY:
@@ -48,6 +64,7 @@ const cartReducer = (state = initialState, action) => {
         items: state.items.map((x) =>
           x.id === action.payload ? { ...x, quantity: x.quantity - 1 } : x
         ),
+        total: sumTotal(state.items),
       };
     case CLEAR_CART:
       return {
