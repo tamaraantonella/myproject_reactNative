@@ -1,0 +1,1 @@
+export const URL_API = "https://mascotapp-app-default-rtdb.firebaseio.com/"
