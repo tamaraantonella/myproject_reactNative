@@ -8,7 +8,7 @@ import { filterPet, selectPet } from "../../store/actions";
 const Products = ({ navigation }) => {
   const selectedCat = useSelector((state) => state.category.selected);
   const dispatch = useDispatch();
-  const productsFilter = useSelector((state) => state.pets.filtered);
+  const productsFilter = useSelector((state) => state.products.filtered);
   const onSelected = (item) => {
     dispatch(selectPet(item.id));
     navigation.navigate("Product", { name: item.title });

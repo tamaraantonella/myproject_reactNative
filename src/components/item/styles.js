@@ -7,17 +7,17 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.lightGrey,
     paddingHorizontal: 20,
     borderRadius: 10,
-    height: 150,
     marginVertical: 30,
-    marginHorizontal: 40,
+    marginHorizontal: 10,
     paddingVertical: 20,
+    elevation: 5,
 
     justifyContent: "space-between",
   },
   detailCont: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 10,
+    padding: 10,
   },
   title: {
     fontFamily: "Lato-Regular",
@@ -30,11 +30,11 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 5,
   },
-  city: {
+  stock: {
     fontFamily: "Lato-Regular",
     fontSize: 14,
   },
-  gender: {
+  price: {
     fontFamily: "Lato-Regular",
     fontSize: 14,
     textTransform: "capitalize",

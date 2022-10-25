@@ -2,21 +2,23 @@ export const wish = [
   {
     id: 4,
     categoryId: 2,
-    title: "Santos",
-    description: "Es un perro poco sociable",
-    gender: "macho",
-    city: "Catamarca",
+    title: "Trixie Snack",
+    description:
+      "Snacks que proporcionan al gato importantes vitaminas y refuerzan sus defensas naturales.",
+    stock: 8,
+    price: 150,
     image:
-      "https://res.cloudinary.com/dfbxjt69z/image/upload/v1662832655/mascotapps/StockSnap_153HM5NIQD_uar46v.jpg",
+      "https://res.cloudinary.com/dfbxjt69z/image/upload/v1664479751/mascotapps/PHO-PRO-CLIP-4266-1-6315f696c47d2_g_rvqo2r.jpg",
   },
   {
     id: 5,
     categoryId: 2,
-    title: "Berry",
-    description: "Es un perro poco amistoso",
-    gender: "macho",
-    city: "Catamarca",
+    title: "Guante para cepillar",
+    description:
+      "Guante hecho de goma con las puntas cuadradas y una tira para la mano para poder así cepillar de forma mas cómoda.",
+    stock: 10,
+    price: 700,
     image:
-      "https://res.cloudinary.com/dfbxjt69z/image/upload/v1662832493/mascotapps/2j_bx0vuv.jpg",
+      "https://res.cloudinary.com/dfbxjt69z/image/upload/v1664479485/mascotapps/pho-pro-clip-2333-1-622b04549837d_g_w5f47k.jpg",
   },
 ];

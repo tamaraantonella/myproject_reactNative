@@ -1,12 +1,12 @@
 import { createStore, combineReducers } from "redux";
 import { applyMiddleware } from "redux";
-import { categoryReducer, petsReducer,cartReducer } from "./reducers";
+import { categoryReducer,cartReducer,productsReducer } from "./reducers";
 import thunk from "redux-thunk";
 // import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
   category: categoryReducer,
-  pets: petsReducer,
+  products: productsReducer,
   cart: cartReducer,
 });
 

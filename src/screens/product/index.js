@@ -5,7 +5,7 @@ import { styles } from "./styles";
 import { useSelector } from "react-redux";
 
 const Product = ({ navigation }) => {
-  const selectedPet = useSelector((state) => state.pets.selected);
+  const selectedPet = useSelector((state) => state.products.selected);
 
   return (
     <View style={styles.container}>

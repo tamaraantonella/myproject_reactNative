@@ -1,3 +1,3 @@
 export * from './categories'
-export * from './pets'
+export * from './products'
 export * from'./wish'
