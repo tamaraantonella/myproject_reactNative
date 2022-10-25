@@ -4,6 +4,7 @@ import {  useFonts } from "expo-font";
 import AppNavigator from "./src/navigation";
 import { Provider } from "react-redux";
 import store from "./src/store";
+// import { registerRootComponent } from "expo";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -22,4 +23,5 @@ export default function App() {
     </Provider>
   );
 }
+
 
