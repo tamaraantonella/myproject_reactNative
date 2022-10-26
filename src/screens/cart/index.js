@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CartItem } from "../../components/cart";
 import { confirmOrder, removeFromCart } from "../../store/actions";
 
-const Order = ({ navigation }) => {
+const Cart = ({ navigation }) => {
   const cart = useSelector((state) => state.cart.items);
   const total = useSelector((state) => state.cart.total);
   const dispatch = useDispatch();
@@ -36,4 +36,4 @@ const Order = ({ navigation }) => {
   );
 };
 
-export default Order;
+export default Cart;

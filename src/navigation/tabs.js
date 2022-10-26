@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import ShopNavigator from "./shop";
 import WishNavigator from "./wishNavigator";
-import OrderNavigator from "./order";
+import CartNavigator from "./cart";
 import { StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../constants/themes";
@@ -47,10 +47,10 @@ const Tabs = () => {
         }}
       />
       <BottomTab.Screen
-        name="OrdersTab"
-        component={OrderNavigator}
+        name="CartTab"
+        component={CartNavigator}
         options={{
-          title: "Orders",
+          title: "Cart",
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? "cart" : "cart-outline"}
