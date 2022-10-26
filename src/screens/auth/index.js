@@ -11,12 +11,17 @@ import { styles } from "./styles";
 import { colors } from "../../constants/themes";
 
 const Auth = ({ navigation }) => {
-  const [isLogin,setIsLogin]=useState(true)
-  const title = isLogin ? "Registrarse":"Iniciar sesión";
-  const message = isLogin ?"¿Ya tienes una cuenta?":"¿No tienes una cuenta?";
-  const buttonTitle = "Iniciar sesión";
+  const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const title = isLogin ? "Registrarse" : "Iniciar sesión";
+  const message = isLogin ? "¿Ya tienes una cuenta?" : "¿No tienes una cuenta?";
   const messageAction = isLogin ? "Registrarse" : "Iniciar sesión";
-  const messageTarget = isLogin ? "Ingresar ahora":"Registrarse ahora";
+  const messageTarget = isLogin ? "Ingresar ahora" : "Registrarse ahora";
+  const handleSubmit = () => {
+    console.log("email", email);
+  };
+
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <View style={styles.inputCont}>
@@ -26,12 +31,13 @@ const Auth = ({ navigation }) => {
           <TextInput
             style={styles.input}
             placeholder="Ingrese su email"
+            value={email}
             placeholderTextColor={colors.gray}
             autoCapitalize="none"
             autoCorrect={false}
             keyboardType="email-address"
             onChangeText={(text) => {
-              console.log("text", text);
+              setEmail(text);
             }}
           ></TextInput>
         </View>
@@ -40,19 +46,18 @@ const Auth = ({ navigation }) => {
           <TextInput
             style={styles.input}
             placeholder="Ingrese su contraseña"
+            value={password}
             placeholderTextColor={colors.gray}
             autoCapitalize="none"
             autoCorrect={false}
             onChangeText={(text) => {
-              console.log("text", text);
+              setPassword(text);
             }}
             secureTextEntry={true}
           ></TextInput>
         </View>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => console.log("iniciar sesion")}
-        >
+        <TouchableOpacity style={styles.button} onPress={handleSubmit}
+        disabled={!email || !password}>
           <Text style={styles.buttonText}>{messageAction}</Text>
         </TouchableOpacity>
         <View style={styles.prompt}>
