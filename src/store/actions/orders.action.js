@@ -30,7 +30,7 @@ export const deleteOrder = (id) => async (dispatch) => {
 
   try {
     const response = await fetch(
-      `https://pet-shop-1c6a5-default-rtdb.firebaseio.com/orders/${id}.json`,
+      `${URL_API}orders/${id}.json`,
       {
         method: "DELETE",
       }

@@ -5,12 +5,14 @@ import { useFocusEffect } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import { styles } from "./styles";
 import { useDispatch } from "react-redux";
-import { getOrders } from "../../store/actions";
+import { deleteOrder, getOrders } from "../../store/actions";
 
 const Orders = ({ navigation }) => {
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.orders.list);
-  const onDelete = (id) => {};
+  const onDelete = (id) => {
+    dispatch(deleteOrder(id))
+  };
   useFocusEffect(
     useCallback(() => {
       dispatch(getOrders());
