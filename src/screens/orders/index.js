@@ -1,19 +1,24 @@
 import { FlatList } from "react-native";
-import React from "react";
+import React, { useCallback } from "react";
 import { WishItem } from "../../components/wishItem";
-import { wish } from "../../constants/data";
+import { useFocusEffect } from "@react-navigation/native";
+import { useSelector } from "react-redux";
 import { styles } from "./styles";
+import { useDispatch } from "react-redux";
+import { getOrders } from "../../store/actions";
 
 const Orders = ({ navigation }) => {
-  const onDelete = (id) => {
-    const newWish = wish.filter((item) => item.id !== id);
-  };
-  const renderItem = ({ item }) => (
-    <WishItem item={item} onDelete={onDelete} />
-  );
+  const dispatch = useDispatch();
+  const orders = useSelector((state) => state.orders.list);
+  const onDelete = (id) => {};
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(getOrders());
+    }, [dispatch]));
+  const renderItem = ({ item }) => <WishItem item={item} onDelete={onDelete} />;
   return (
     <FlatList
-      data={wish}
+      data={orders}
       renderItem={renderItem}
       keyExtractor={(item) => item.id.toString()}
       style={styles.container}

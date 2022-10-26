@@ -11,8 +11,6 @@ export const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 4,
     marginHorizontal: 5,
-    borderWidth: 1,
-    borderColor: colors.grey,
     gap: 20,
   },
   title: {

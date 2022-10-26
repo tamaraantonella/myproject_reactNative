@@ -7,8 +7,8 @@ export const WishItem = ({ item, onDelete }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{item.title}</Text>
-      <Text style={styles.text}>{item.gender}</Text>
+      <Text style={styles.title}>{item.date}</Text>
+      <Text style={styles.text}>${item.total}</Text>
       <Text>{item.city}</Text>
       <View>
         <TouchableOpacity onPress={() => onDelete(item.id)}>
