@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, TextInput } from "react-native";
 import React from "react";
 import { styles } from "./styles";
 import { Label } from "../label";

@@ -12,6 +12,7 @@ import { colors } from "../../constants/themes";
 import { useDispatch } from "react-redux";
 import { signUp } from "../../store/actions";
 import { Input } from "../../components/input";
+import { onInputChange, UPDATED_FORM } from "../../utils/forms";
 
 const initialState = {
   email: { value: "", error: "", touched: false, hasError: false },
@@ -20,7 +21,7 @@ const initialState = {
 };
 const formReducer = (state, action) => {
   switch (action.type) {
-    case "UPDATED_FORM":
+    case UPDATED_FORM:
       const { name, value, hasError, touched, error, isFormValid } =
         action.data;
       return {
@@ -50,19 +51,6 @@ const Auth = ({ navigation }) => {
   const handleSubmit = () => {
     dispatch(signUp(formState.email.value, formState.password.value));
   };
-  const onInputChange = (value, type, dispatchFormState, formState) => {
-    dispatchFormState({
-      type: "UPDATED_FORM",
-      data: {
-        name,
-        value,
-        hasError,
-        error,
-        touched,
-        isFormValid: !hasError,
-      },
-    });
-  };
 
   const handleChange = (value, type) => {
     onInputChange(value, type, dispatchFormState, formState);
@@ -81,10 +69,11 @@ const Auth = ({ navigation }) => {
           autoCorrect={false}
           keyboardType="email-address"
           hasError={formState.email.hasError}
-          error="El email es requerido"
+          error={formState.email.error}
           onChangeText={(text) => {
-            setEmail(text);
+            handleChange(text, "email");
           }}
+          touched={formState.email.touched}
         ></Input>
         <Input
           label="Contraseña"
@@ -94,11 +83,12 @@ const Auth = ({ navigation }) => {
           autoCapitalize="none"
           autoCorrect={false}
           hasError={formState.password.hasError}
-          error="La contraseña es requerida"
+          error={formState.password.error}
           onChangeText={(text) => {
-            setPassword(text);
+            handleChange(text, "password");
           }}
           secureTextEntry={true}
+          touched={formState.password.touched}
         ></Input>
         <TouchableOpacity
           style={styles.button}
