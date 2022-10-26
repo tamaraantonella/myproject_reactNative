@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import {
   View,
   Text,
@@ -11,11 +11,12 @@ import { styles } from "./styles";
 import { colors } from "../../constants/themes";
 
 const Auth = ({ navigation }) => {
-  const title = "Registro";
-  const message = "¿Ya tienes una cuenta?";
+  const [isLogin,setIsLogin]=useState(true)
+  const title = isLogin ? "Registrarse":"Iniciar sesión";
+  const message = isLogin ?"¿Ya tienes una cuenta?":"¿No tienes una cuenta?";
   const buttonTitle = "Iniciar sesión";
-  const messageAction = "Registrarse";
-  const messageTarget = "Ingresar ahora";
+  const messageAction = isLogin ? "Registrarse" : "Iniciar sesión";
+  const messageTarget = isLogin ? "Ingresar ahora":"Registrarse ahora";
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <View style={styles.inputCont}>
@@ -56,7 +57,7 @@ const Auth = ({ navigation }) => {
         </TouchableOpacity>
         <View style={styles.prompt}>
           <Text>{message}</Text>
-          <TouchableOpacity onPress={() => console.log("Change")}>
+          <TouchableOpacity onPress={() => setIsLogin(!isLogin)}>
             <Text style={styles.promptMessage}>{messageTarget}</Text>
           </TouchableOpacity>
         </View>

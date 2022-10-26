@@ -54,6 +54,6 @@ export const styles = StyleSheet.create({
   },
   promptMessage: {
     color: colors.primary,
-
+    fontFamily: "Lato-Regular",
   }
 });
