@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 10,
     borderRadius: 10,
-    width:"100%",
+    width: "100%",
   },
   input: {
     height: 40,
@@ -14,5 +14,10 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
     width: "100%",
     borderBottomWidth: 1,
+  },
+  helper: {
+    color: colors.danger,
+    fontSize: 12,
+    marginVertical: 5,
   },
 });

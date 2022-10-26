@@ -13,6 +13,9 @@ export const Input = ({
   placeholder,
   placeholderTextColor,
   keyboardType,
+  hasError,
+  error,
+  touched,
   ...props
 }) => {
   return (
@@ -31,6 +34,11 @@ export const Input = ({
           keyboardType={keyboardType}
         ></TextInput>
       </Label>
+      {hasError && touched && (
+        <View>
+          <Text style={styles.helper}>{error}</Text>
+        </View>
+      )}
     </View>
   );
 };
