@@ -18,7 +18,7 @@ const Order = ({ navigation }) => {
       <FlatList
         data={cart}
         renderItem={renderItem}
-        keyExtractor={(item) => console.log(item)}
+        keyExtractor={(item) => item.id.toString()}
         style={styles.container}
       ></FlatList>
       <Text style={styles.total}>Total: ${total}</Text>
