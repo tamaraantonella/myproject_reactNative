@@ -26,6 +26,7 @@ const Product = ({ navigation }) => {
       <Text>{description}</Text>
       <Text>Stock {stock}</Text>
       <Text>${price}</Text>
+      {stock > 0 ? (<Button title="Agregar al carrito" onPress={handleCart}></Button>):(<Text>No hay stock</Text>)}
       <Button title="Agregar al carrito" onPress={handleCart}></Button>
     </View>
   );

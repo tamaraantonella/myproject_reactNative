@@ -22,7 +22,6 @@ export const removeFromCart = (id) => {
   };
 };
 
-
 export const decreaseQuantity = (id) => {
   return {
     type: DECREASE_QUANTITY,
@@ -34,24 +33,31 @@ export const clearCart = () => {
   return {
     type: CLEAR_CART,
   };
-}
+};
 
-export const confirmOrder = (order) => {
+export const confirmOrder = (cart, total) => {
   return async (dispatch) => {
     try {
       const response = await fetch(`${URL_API}/orders.json`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(order),
+        body: JSON.stringify({
+          date: new Date().toDateString(),
+          items: cart,
+          total: total,
+        }),
       });
+      const result = await response.json();
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
+      console.log(result);
       dispatch({
         type: CONFIRM_ORDER,
+        result:result
       });
     } catch (error) {
       throw error;
     }
   };
-}
+};
