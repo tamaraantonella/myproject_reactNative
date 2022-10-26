@@ -10,7 +10,7 @@ import { styles } from "./styles";
 // import {colors
 import { colors } from "../../constants/themes";
 import { useDispatch } from "react-redux";
-import { signUp } from "../../store/actions";
+import { signIn, signUp } from "../../store/actions";
 import { Input } from "../../components/input";
 import { onInputChange, UPDATED_FORM } from "../../utils/forms";
 
@@ -41,15 +41,17 @@ const formReducer = (state, action) => {
 };
 
 const Auth = ({ navigation }) => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isNewUser, setIsNewUser] = useState(true);
   const dispatch = useDispatch();
   const [formState, dispatchFormState] = useReducer(formReducer, initialState);
-  const title = isLogin ? "Registrarse" : "Iniciar sesión";
-  const message = isLogin ? "¿Ya tienes una cuenta?" : "¿No tienes una cuenta?";
-  const messageAction = isLogin ? "Registrarse" : "Iniciar sesión";
-  const messageTarget = isLogin ? "Ingresar ahora" : "Registrarse ahora";
+  const title = isNewUser ? "Registrarse" : "Iniciar sesión";
+  const message = isNewUser ? "¿Ya tienes una cuenta?" : "¿No tienes una cuenta?";
+  const messageAction = isNewUser ? "Registrarse" : "Iniciar sesión";
+  const messageTarget = isNewUser ? "Ingresar ahora" : "Registrarse ahora";
   const handleSubmit = () => {
-    dispatch(signUp(formState.email.value, formState.password.value));
+    isNewUser
+      ? dispatch(signUp(formState.email.value, formState.password.value))
+      : dispatch(signIn(formState.email.value, formState.password.value));
   };
 
   const handleChange = (value, type) => {
@@ -99,7 +101,7 @@ const Auth = ({ navigation }) => {
         </TouchableOpacity>
         <View style={styles.prompt}>
           <Text>{message}</Text>
-          <TouchableOpacity onPress={() => setIsLogin(!isLogin)}>
+          <TouchableOpacity onPress={() => setIsNewUser(!isNewUser)}>
             <Text style={styles.promptMessage}>{messageTarget}</Text>
           </TouchableOpacity>
         </View>

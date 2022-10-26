@@ -37,7 +37,8 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   button: {
-    backgroundColor: colors.lightGrey,
+    backgroundColor: colors.primary,
+    color: "#fff",
     padding: 10,
     borderRadius: 5,
     marginVertical: 10,
@@ -45,6 +46,8 @@ export const styles = StyleSheet.create({
   buttonText: {
     textAlign: "center",
     fontWeight: "bold",
+
+    color: "#fff",
   },
   prompt: {
     flexDirection: "row",
