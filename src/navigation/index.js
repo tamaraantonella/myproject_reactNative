@@ -1,15 +1,15 @@
-import React from "react";
-import { NavigationContainer} from "@react-navigation/native";
+import React, { useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
 
-
+import AuthNavigator from "./auth";
 import Tabs from "./tabs";
 
 const AppNavigator = () => {
-  return (
-    <NavigationContainer>
-      <Tabs />
-    </NavigationContainer>
-  );
+  const [userId, setUserId] = useState(null);
+
+  return <NavigationContainer>
+    {userId ? <Tabs /> : <AuthNavigator />}
+  </NavigationContainer>;
 };
 
 export default AppNavigator;
