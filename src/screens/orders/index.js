@@ -4,7 +4,7 @@ import { WishItem } from "../../components/wishItem";
 import { wish } from "../../constants/data";
 import { styles } from "./styles";
 
-const WishList = ({ navigation }) => {
+const Orders = ({ navigation }) => {
   const onDelete = (id) => {
     const newWish = wish.filter((item) => item.id !== id);
   };
@@ -21,4 +21,4 @@ const WishList = ({ navigation }) => {
   );
 };
 
-export default WishList;
+export default Orders;

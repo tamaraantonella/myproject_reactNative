@@ -2,11 +2,11 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { colors } from "../constants/themes";
-import { WishList } from "../screens";
+import { Orders } from "../screens";
 
 const Stack = createNativeStackNavigator();
 
-const WishNavigator = () => {
+const OrdersNavigator = () => {
   return (
     <Stack.Navigator
       initialRouteName="Lista de deseos"
@@ -22,12 +22,12 @@ const WishNavigator = () => {
       }}
     >
       <Stack.Screen
-        name="Lista de deseos"
-        component={WishList}
-        options={{ title: "Lista de deseos" }}
+        name="Ordenes"
+        component={Orders}
+        options={{ title: "Ordenes" }}
       />
     </Stack.Navigator>
   );
 };
 
-export default WishNavigator;
+export default OrdersNavigator;
