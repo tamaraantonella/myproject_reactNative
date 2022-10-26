@@ -1,26 +1,32 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Button } from "react-native";
 import Header from "../../components/header/header";
 import { styles } from "./styles";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../store/actions";
 
 const Product = ({ navigation }) => {
-  const selectedPet = useSelector((state) => state.products.selected);
-
+  const prod = useSelector((state) => state.products.selected);
+  const { id, title, description, price, stock, image } = prod || {};
+  const dispatch = useDispatch();
+  function handleCart() {
+    dispatch(addToCart(prod));
+  }
   return (
     <View style={styles.container}>
-      <Header title={selectedPet.title} />
+      <Header title={title} />
       <View style={styles.contImg}>
         <Image
           source={{
-            uri: selectedPet.image,
+            uri: image,
           }}
           style={styles.image}
         />
       </View>
-      <Text>{selectedPet.description}</Text>
-      <Text>{selectedPet.gender}</Text>
-      <Text>{selectedPet.city}</Text>
+      <Text>{description}</Text>
+      <Text>Stock {stock}</Text>
+      <Text>${price}</Text>
+      <Button title="Agregar al carrito" onPress={handleCart}></Button>
     </View>
   );
 };

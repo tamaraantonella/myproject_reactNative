@@ -1,14 +1,14 @@
 import { cartTypes } from "../types";
-const carritoEjemplo = [
+let carritoEjemplo = [
     {
       id: 1,
-      name: "Pelota",
+      title: "Pelota",
       price: 100,
       quantity: 1,
     },
     {
       id: 2,
-      name: "Snack",
+      title: "Snack",
       price: 200,
       quantity: 1,
     },
@@ -36,18 +36,20 @@ const cartReducer = (state = initialState, action) => {
     case ADD_TO_CART:
       let updatedCart = [];
       const item = action.payload;
+      console.log(item)
       const existItem = state.items.find((x) => x.id === item.id);
       if (existItem) {
-        updatedCart = state.items.map((x) =>
-          x.id === existItem.id ? (item.quantity += 1) : x
-        );
+        updatedCart = state.items.map((x) =>{
+          x.id === state.items.id ? (item.quantity += 1) : x
+        });
       } else {
-        const newItem = { ...item, quantity: 1 };
+        const newItem = {...item, quantity: 1 };
         updatedCart = [...state.items, newItem];
       }
+      console.log(updatedCart);
       return {
         ...state,
-        items: [...state.items, updatedCart],
+        items: updatedCart,
         total: sumTotal(updatedCart),
       };
     case REMOVE_FROM_CART:

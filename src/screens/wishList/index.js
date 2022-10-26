@@ -7,7 +7,6 @@ import { styles } from "./styles";
 const WishList = ({ navigation }) => {
   const onDelete = (id) => {
     const newWish = wish.filter((item) => item.id !== id);
-    console.log(newWish);
   };
   const renderItem = ({ item }) => (
     <WishItem item={item} onDelete={onDelete} />

@@ -7,7 +7,7 @@ export const CartItem = ({ item, onDelete }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{item.quantity}</Text>
-      <Text style={styles.title}>{item.name}</Text>
+      <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.title}>${item.price}</Text>
       <View>
         <TouchableOpacity onPress={() => onDelete(item.id)}>
