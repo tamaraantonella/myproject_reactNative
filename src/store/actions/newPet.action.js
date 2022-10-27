@@ -1,5 +1,7 @@
 import { newPetTypes } from "../types";
 const { NEW_PET } = newPetTypes;
+import * as FileSystem from "expo-file-system";
+import Pet from "../../model/Pet";
 
 export const newPet = (pet) => async (dispatch) => {
   try {
@@ -11,3 +13,5 @@ export const newPet = (pet) => async (dispatch) => {
     throw error;
   }
 };
+
+

@@ -9,17 +9,18 @@ import ImageSelector from "../../components/image-selector";
 
 const NewPet = ({ navigation }) => {
   const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
   const dispatch = useDispatch();
   const onHandleChange = (value, type) => {
     setTitle(value);
   };
   const onHandleSubmit = () => {
-    const pet = { name: title };
+    const pet = { id:Math.random(),name: title, image: image, address:"calle 123" };
     dispatch(newPet(pet));
     navigation.goBack();
   };
-  const onHandlerImage = (image) => {
-    console.log(image);
+  const onHandlerImage = (img) => {
+    setImage(img);
   };
 
   return (

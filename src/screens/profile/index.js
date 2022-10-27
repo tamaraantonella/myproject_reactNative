@@ -1,21 +1,28 @@
 import React from "react";
-import { View, Text, Image, Button } from "react-native";
+import { View, Text, Image, Button, FlatList } from "react-native";
 import { useSelector } from "react-redux";
+import { Pet } from "../../components/pet";
 import { styles } from "./styles";
 
 const Profile = ({ navigation }) => {
   const pets = useSelector((state) => state.newPet.pets);
   console.log(pets);
+  const renderItem = ({ item }) => (
+
+    <Pet
+      {...item}
+      onSelect={() => navigation.navigate("Pet", { pet: item })}
+    />
+  );
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mis Mascotas</Text>
-      {pets.length === 0 && (<Text>No tienes mascotas cargadas 👀</Text>)}
-      {pets?.map((pet) => (
-        <View key={Math.random()}>
-          <Text>{pet.name}</Text>
-          <Image source={{ uri: pet.image }} style={styles.image} />
-        </View>
-      ))}
+      <FlatList
+        data={pets}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
+        ListEmptyComponent={<Text>No tienes mascotas cargadas 👀</Text>}
+      ></FlatList>
     </View>
   );
 };

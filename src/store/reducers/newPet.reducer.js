@@ -5,6 +5,7 @@ const initialState = {
   pets: [],
 };
 
+
 const newPetReducer = (state = initialState, action) => {
   switch (action.type) {
     case NEW_PET:
