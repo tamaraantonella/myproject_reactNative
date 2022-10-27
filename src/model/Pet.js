@@ -1,7 +1,8 @@
 class Pet {
-  constructor(id, name) {
+  constructor(id, name,image) {
     this.id = id,toString();
     this.name = name;
+    this.image = image;
 
   }
 }

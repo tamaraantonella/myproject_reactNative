@@ -5,18 +5,23 @@ import { colors } from "../../constants/themes";
 import { useDispatch } from "react-redux";
 import { newPet } from "../../store/actions";
 import { NavigationRouteContext } from "@react-navigation/native";
+import ImageSelector from "../../components/image-selector";
 
-const NewPet = ({navigation}) => {
+const NewPet = ({ navigation }) => {
   const [title, setTitle] = useState("");
   const dispatch = useDispatch();
   const onHandleChange = (value, type) => {
     setTitle(value);
   };
   const onHandleSubmit = () => {
-    const pet = {name:title}
+    const pet = { name: title };
     dispatch(newPet(pet));
     navigation.goBack();
   };
+  const onHandlerImage = (image) => {
+    console.log(image);
+  };
+
   return (
     <ScrollView style={styles.scrollCon}>
       <View style={styles.container}>
@@ -27,6 +32,7 @@ const NewPet = ({navigation}) => {
           onChangeText={(text) => onHandleChange(text)}
           value={title}
         ></TextInput>
+        <ImageSelector onImage={onHandlerImage} />
         <Button
           title="Agregar"
           onPress={onHandleSubmit}
