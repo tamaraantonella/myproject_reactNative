@@ -5,7 +5,7 @@ import { styles } from "./styles";
 const Profile = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>Mi Perfil</Text>
+      <Text style={styles.title}>Mis Mascotas</Text>
     </View>
   );
 };

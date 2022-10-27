@@ -1,8 +1,9 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Categories, Products, Product, Landing } from "../screens";
+import { Categories, Products, Product, Landing,Profile,NewPet } from "../screens";
 import { colors } from "../constants/themes";
-import Profile from "../screens/profile";
+import IonicIcons from "@expo/vector-icons/Ionicons";
+import { Platform, TouchableOpacity } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +31,23 @@ const ShopNavigator = () => {
       <Stack.Screen
         name="Profile"
         component={Profile}
-        options={{ title: "Perfil" }}
+        options={({ navigation }) => ({
+          title: "Perfil",
+          headerRight: () => (
+            <TouchableOpacity onPress={() => navigation.navigate("NewPet")}>
+              <IonicIcons
+                name="add-circle-outline"
+                size={25}
+                color={colors.white}
+              />
+            </TouchableOpacity>
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="NewPet"
+        component={NewPet}
+        options={{ title: "Nueva mascota" }}
       />
       <Stack.Screen
         name="Categories"

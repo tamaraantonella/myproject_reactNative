@@ -5,3 +5,5 @@ export { default as Landing } from "./landing/landing";
 export { default as Orders } from './orders'
 export { default as Cart } from './cart'
 export { default as Auth } from './auth'
+export { default as Profile } from './profile'
+export { default as NewPet } from './newPet'
