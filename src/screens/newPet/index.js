@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { styles } from "./styles";
 import { colors } from "../../constants/themes";
 import { useDispatch } from "react-redux";
-import { newPet } from "../../store/actions";
-import { NavigationRouteContext } from "@react-navigation/native";
+import { newPet, saveImage } from "../../store/actions";
 import ImageSelector from "../../components/image-selector";
 
 const NewPet = ({ navigation }) => {
@@ -15,8 +14,13 @@ const NewPet = ({ navigation }) => {
     setTitle(value);
   };
   const onHandleSubmit = () => {
-    const pet = { id:Math.random(),name: title, image: image, address:"calle 123" };
-    dispatch(newPet(pet));
+    const pet = {
+      id: Math.random(),
+      name: title,
+      image: image,
+      address: "calle 123",
+    };
+    dispatch(saveImage(pet));
     navigation.goBack();
   };
   const onHandlerImage = (img) => {
