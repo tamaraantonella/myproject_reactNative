@@ -2,6 +2,7 @@ import { View, Text, Button } from "react-native";
 import React, { useState } from "react";
 import { styles } from "./styles";
 import * as Location from "expo-location";
+import MapPreview from "../map-preview";
 
 const LocationSelector = ({ onLocation }) => {
   const [pickedLocation, setPickedLocation] = useState(null);
@@ -32,20 +33,14 @@ const LocationSelector = ({ onLocation }) => {
     onLocation({
       lat: location.coords.latitude,
       lng: location.coords.longitude,
-
     });
   };
-    ;
-
   return (
-    <View style={styles.container}>
-      <View style={styles.fileCont}>
-        {pickedLocation === null ? (
-          <Text>No hay ubicación cargada</Text>
-        ) : (
-          <Text>{`lat: ${pickedLocation["lat"]}, long:${pickedLocation["lng"]}`}</Text>
-        )}
-      </View>
+    <View style={styles.fileCont}>
+      <MapPreview location={pickedLocation}>
+        <Text>No está seleccionada la ubicación</Text>
+      </MapPreview>
+
       <Button title="Seleccionar ubicación" onPress={onHandleLocation} />
     </View>
   );
