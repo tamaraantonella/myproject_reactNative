@@ -19,15 +19,15 @@ export const validateInput = (type, value) => {
   return { hasError, error, touched };
 };
 export const onInputChange = (value, type, dispatchFormState, formState) => {
-  const { hasError, error,touched } = validateInput(type, value);
+  const { hasError, error } = validateInput(type, value);
   let isFormValid = true;
   for (const key in formState) {
-    const item= formState[key];
+    const item = formState[key];
     if (key !== type && hasError) {
       isFormValid = false;
       break;
     } else if (key !== type && item.hasError) {
-      isFormValid = false
+      isFormValid = false;
       break;
     }
   }
@@ -38,8 +38,35 @@ export const onInputChange = (value, type, dispatchFormState, formState) => {
       value,
       hasError,
       error,
-      touched,
+      touched: true,
       isFormValid: isFormValid,
+    },
+  });
+};
+
+export const onFocusOut = (value, type, dispatchFormState, formState) => {
+  console.log('esto llega ',value, type, dispatchFormState, formState)
+  const { hasError, error } = validateInput(type, value);
+  let isFormValid = true;
+  for (const key in formState) {
+    const item = formState[key];
+    if (key !== name && hasError) {
+      isFormValid = false;
+      break;
+    } else if (key !== name && item.hasError) {
+      isFormValid = false;
+      break;
+    }
+  }
+  dispatchFormState({
+    type: UPDATED_FORM,
+    data: {
+      name: type,
+      value,
+      hasError,
+      error,
+      touched: true,
+      isFormValid,
     },
   });
 };

@@ -12,7 +12,7 @@ import { colors } from "../../constants/themes";
 import { useDispatch } from "react-redux";
 import { signIn, signUp } from "../../store/actions";
 import { Input } from "../../components/input";
-import { onInputChange, UPDATED_FORM } from "../../utils/forms";
+import { onFocusOut, onInputChange, UPDATED_FORM } from "../../utils/forms";
 
 const initialState = {
   email: { value: "", error: "", touched: false, hasError: false },
@@ -20,6 +20,7 @@ const initialState = {
   isFormValid: false,
 };
 const formReducer = (state, action) => {
+  console.log(action.data)
   switch (action.type) {
     case UPDATED_FORM:
       const { name, value, hasError, touched, error, isFormValid } =
@@ -57,6 +58,9 @@ const Auth = ({ navigation }) => {
   const handleChange = (value, type) => {
     onInputChange(value, type, dispatchFormState, formState);
   };
+  const onHandleBlur = (value, type) => {
+    onFocusOut(value, type , dispatchFormState, formState);
+  };
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -75,6 +79,7 @@ const Auth = ({ navigation }) => {
           onChangeText={(text) => {
             handleChange(text, "email");
           }}
+          // onBlur={(e) => onHandleBlur(e.nativeEvent.text, "email")}
           touched={formState.email.touched}
         ></Input>
         <Input
@@ -89,6 +94,7 @@ const Auth = ({ navigation }) => {
           onChangeText={(text) => {
             handleChange(text, "password");
           }}
+          // onBlur={(e) => onHandleBlur(e.nativeEvent.text, "password")}
           secureTextEntry={true}
           touched={formState.password.touched}
         ></Input>

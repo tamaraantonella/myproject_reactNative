@@ -2,6 +2,7 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Categories, Products, Product, Landing } from "../screens";
 import { colors } from "../constants/themes";
+import Profile from "../screens/profile";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,11 @@ const ShopNavigator = () => {
         options={{ title: "Mascotapp" }}
       />
 
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{ title: "Perfil" }}
+      />
       <Stack.Screen
         name="Categories"
         component={Categories}

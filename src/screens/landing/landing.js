@@ -5,10 +5,9 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Button,
-  Text
+  Text,
 } from "react-native";
 import React from "react";
-
 
 const Landing = ({ navigation }) => {
   return (
@@ -27,7 +26,13 @@ const Landing = ({ navigation }) => {
           <Button
             title="Ver las categorías"
             onPress={() => navigation.navigate("Categories")}
-            color={"#FFC700"}
+            color={"#0a66c2"}
+          ></Button>
+
+          <Button
+            title="Ir a mi perfil"
+            onPress={() => navigation.navigate("Profile")}
+            color={"#0a66c2"}
           ></Button>
         </View>
       </View>
@@ -64,10 +69,13 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   buttonCon: {
-    width: "50%",
+    flexDirection: "column",
+    width: "80%",
     marginHorizontal: 50,
     height: 50,
-    marginVertical: 50,
+    marginVertical: 10,
+    justifyContent: "space-between",
+height:80
   },
   image: {
     width: 200,
