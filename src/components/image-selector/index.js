@@ -29,6 +29,7 @@ const ImageSelector = ({ onImage }) => {
     });
     setPickedUrl(image.uri);
     onImage(image.uri);
+    console.log(image.uri);
   };
 
   return (

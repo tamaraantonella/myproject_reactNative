@@ -5,10 +5,12 @@ import { colors } from "../../constants/themes";
 import { useDispatch } from "react-redux";
 import { newPet, saveImage } from "../../store/actions";
 import ImageSelector from "../../components/image-selector";
+import LocationSelector from "../../components/location-selector";
 
 const NewPet = ({ navigation }) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
+  const [location, setLocation] = useState("");
   const dispatch = useDispatch();
   const onHandleChange = (value, type) => {
     setTitle(value);
@@ -18,13 +20,16 @@ const NewPet = ({ navigation }) => {
       id: Math.random(),
       name: title,
       image: image,
-      address: "calle 123",
+      address: location,
     };
-    dispatch(saveImage(pet));
+    dispatch(newPet(pet));
     navigation.goBack();
   };
   const onHandlerImage = (img) => {
     setImage(img);
+  };
+  const onHandlerLocation = (loc) => {
+    setLocation(loc);
   };
 
   return (
@@ -38,6 +43,7 @@ const NewPet = ({ navigation }) => {
           value={title}
         ></TextInput>
         <ImageSelector onImage={onHandlerImage} />
+        <LocationSelector onLocation={onHandlerLocation}></LocationSelector>
         <Button
           title="Agregar"
           onPress={onHandleSubmit}
